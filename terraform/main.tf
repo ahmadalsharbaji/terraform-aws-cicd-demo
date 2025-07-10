@@ -6,7 +6,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "demo_bucket" {
-  bucket = "cicd-demo-bucket-${random_id.bucket_id.hex}"
+  bucket        = "cicd-demo-bucket-${random_id.bucket_id.hex}"
   force_destroy = true
 }
 
