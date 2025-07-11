@@ -2,7 +2,7 @@ name: Deploy Terraform to AWS
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 jobs:
   deploy:
@@ -31,5 +31,6 @@ jobs:
       working-directory: terraform
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve
-      working-directory: terraform
+    - if: github.ref == 'refs/heads/main'
+    - run: terraform apply -auto-approve
+    - working-directory: terraform
