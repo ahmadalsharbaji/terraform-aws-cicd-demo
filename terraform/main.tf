@@ -2,10 +2,10 @@
 
 terraform {
   backend "s3" {
-    bucket         = "terraform-state-bucket-444333222111"     # Replace with your actual state bucket
+    bucket         = "terraform-state-bucket-444333222111" # Replace with your actual state bucket
     key            = "terraform/terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "terraform-locks"                 # Replace with your actual table name
+    dynamodb_table = "terraform-locks" # Replace with your actual table name
     encrypt        = true
   }
 
@@ -24,6 +24,6 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "demo_bucket" {
-  bucket        = "cicd-demo-bucket-prod"  # Fixed name
+  bucket        = "cicd-demo-bucket-prod" # Fixed name
   force_destroy = true
 }
